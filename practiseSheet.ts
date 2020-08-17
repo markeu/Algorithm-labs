@@ -122,55 +122,6 @@ function filter(arr, fn) {
 // console.log(some([1, 2, 5, 4, 5, 5], (e => e == 3)))
 // console.log(every([3, 3, 3, 3, , 3], (e => e == 3)))
 
-// const locations = ['Abuja', 'Benue', 'Oyo']
-// function createName(n: number): Array<object>{
-//   let result = []
-//   for (let index = 0; index < n; index++) {
-//     result.push({name: `User${index + 1}`})
-//   }
-//  return result
-// }
-
-// console.log(createName(6))
-
-// function locationMap(n: number): Array<string> {
-//   const locations = ['Abuja', 'Benue', 'Sambisa', 'lagos', 'katsina']
-//   let arr = [];
-//   for (let i = 0; i < n; i++) {
-//     i > locations.length - 1 ? arr.push(locations[i % locations.length]) : arr.push(locations[i])
-//   }
-//   return arr
-// }
-
-// console.log(locationMap(51))
-
-// function combine(n: number): Array<object>{
-//   const name: Array<object> = createName(n);
-//   const location: Array<string> = locationMap(n)
-//   name.map((ele, index) => ele.location = location[index])
-//   return name;
-// }
-
-// console.log(combine(5))
-
-// function evenlyDistributed(n: number): object{
-//   let passengers = combine(n)
-//   let reservation;
-//   if (passengers.length % 5 !== 0 && passengers.length < 50) {
-//     const length: number = Math.floor(passengers.length / 5) * 5;
-//     const spliceNumber: number = length % 5
-//     const startSplice: number = length - spliceNumber
-//     reservation = passengers.splice(startSplice, spliceNumber)
-//     return {
-//       passengers,
-//       reservation
-//     }
-//   }
-
-// }
-
-// console.log(evenlyDistributed(17))
-
 function packarray(arr) {
   let temp = [];
   let result = [];
