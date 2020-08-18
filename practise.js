@@ -192,3 +192,16 @@ const numberToOrdinal = (number) => {
 };
 
 console.log(numberToOrdinal(131));
+
+function firstNonRepeatingLetter(str) {
+    for (let index = 0; index < str.length; index++) {
+        const convertToLowerChars = str.toLowerCase();
+        const strCompare =
+            convertToLowerChars.lastIndexOf(convertToLowerChars[index]) ==
+            convertToLowerChars.indexOf(convertToLowerChars[index]);
+        if (strCompare) return str.charAt(index);
+    }
+    return "";
+}
+
+console.log(firstNonRepeatingLetter("moooooomemnn"));
