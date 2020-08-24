@@ -205,3 +205,16 @@ function firstNonRepeatingLetter(str) {
 }
 
 console.log(firstNonRepeatingLetter("moooooomemnn"));
+
+function isIsogram(str) {
+    for (let index = 0; index < str.length; index++) {
+        const convertToLowerChars = str.toLowerCase();
+        const strCompare =
+            convertToLowerChars.lastIndexOf(convertToLowerChars[index]) !==
+            convertToLowerChars.indexOf(convertToLowerChars[index]);
+        if (strCompare) return false;
+    }
+    return true;
+}
+
+console.log(isIsogram("moOse"));
