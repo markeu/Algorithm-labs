@@ -218,3 +218,39 @@ function isIsogram(str) {
 }
 
 console.log(isIsogram("moOse"));
+
+function markdownParser(markdown) {
+    let indexOfSpace = markdown.trim().indexOf(" ");
+    let details = markdown.trim().slice(indexOfSpace);
+    let Atx_style = markdown.trim().split(details)[0];
+    if (Atx_style[0] !== "#") return markdown;
+    if (indexOfSpace > 6 || indexOfSpace == -1) {
+        return markdown;
+    }
+
+    let output = "";
+    switch (Atx_style) {
+        case "#":
+            output = `<h1>${details.trim()}</h1>`;
+            break;
+        case "##":
+            output = `<h2>${details.trim()}</h2>`;
+            break;
+        case "###":
+            output = `<h3>${details.trim()}</h3>`;
+            break;
+        case "####":
+            output = `<h4>${details.trim()}</h4>`;
+            break;
+        case "#####":
+            output = `<h5>${details.trim()}</h5>`;
+            break;
+        case "######":
+            output = `<h6>${details.trim()}</h6>`;
+            break;
+        default:
+            break;
+    }
+    return output;
+}
+console.log(markdownParser("Behind #### Space Jam"));
