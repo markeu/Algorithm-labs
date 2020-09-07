@@ -254,3 +254,44 @@ function markdownParser(markdown) {
     return output;
 }
 console.log(markdownParser("Behind #### Space Jam"));
+
+function isUpperCaseAt(str, index) {
+    return str.charAt(index).toUpperCase() === str.charAt(index);
+}
+
+function accum(s) {
+    // your code
+    let output = [];
+    let y = "";
+    for (let index = 0; index < s.length; index++) {
+        const element = s[index];
+        if (isUpperCaseAt(element)) {
+            let temp = `${element.padEnd(index + 1, element.toLowerCase())}`;
+            output.push(temp);
+        } else {
+            const first = element.toUpperCase();
+            let temp = `${first.padEnd(index + 1, element)}`;
+            output.push(temp);
+        }
+    }
+    return output.join("-");
+}
+
+console.log(accum("ZpglnRxqenU"));
+
+function reversedDigit(numb) {
+    return numb.toString().split("").reverse().join("");
+}
+const palindromeChainLength = (n) => {
+    let count = 0;
+    let temp = n;
+    if (temp == +reversedDigit(temp)) return 0;
+    while (temp !== +reversedDigit(temp)) {
+        count++;
+        let sum = temp + +reversedDigit(temp);
+        temp = sum;
+    }
+    return count;
+};
+
+console.log(palindromeChainLength(87));
