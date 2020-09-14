@@ -53,3 +53,20 @@ function orderWeight(strng) {
 
 console.log(orderWeight("2000 10003 1234000 44444444 9999 11 11 22 123"));
 //"11 11 2000 10003 22 123 1234000 44444444 9999";
+
+function findOdd(integers) {
+    const obj = {};
+
+    for (let i = 0; i < integers.length; i++) {
+        const element = integers[i];
+        obj[element] = obj[element] ? obj[element] + 1 : 1;
+    }
+
+    for (const [key, value] of Object.entries(obj)) {
+        if (value % 2 !== 0) {
+            return key;
+        }
+    }
+}
+
+console.log(findOdd([5, 1, 1, 5, 2, 2, 5]));
