@@ -70,3 +70,21 @@ function findOdd(integers) {
 }
 
 console.log(findOdd([5, 1, 1, 5, 2, 2, 5]));
+
+function stringSuffix(str) {
+    let count = 0;
+    for (let index = 0; index < str.length; index++) {
+        count += checkEquals(str, str.substr(index));
+    }
+    return count;
+}
+
+function checkEquals(str, compareString) {
+    for (let index = 0; index < compareString.length; index++) {
+        if (str[index] != compareString[index]) {
+            return index;
+        }
+    }
+    return compareString.length;
+}
+console.log(stringSuffix("ababaa"));
