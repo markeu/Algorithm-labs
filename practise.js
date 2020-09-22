@@ -88,3 +88,36 @@ function checkEquals(str, compareString) {
     return compareString.length;
 }
 console.log(stringSuffix("ababaa"));
+
+function decode(roman) {
+    let romanArr = roman.split("");
+    const lookup = {
+        M: 1000,
+        CM: 900,
+        D: 500,
+        CD: 400,
+        C: 100,
+        XC: 90,
+        L: 50,
+        XL: 40,
+        X: 10,
+        IX: 9,
+        V: 5,
+        IV: 4,
+        I: 1,
+    };
+    let count = 0;
+    if (lookup.hasOwnProperty(roman)) {
+        count = lookup[roman];
+    } else {
+        for (let index = 0; index < romanArr.length; index++) {
+            const element = romanArr[index];
+            if (lookup.hasOwnProperty(element)) {
+                count += lookup[element];
+            }
+        }
+    }
+    return count;
+}
+
+console.log(decode("XXX"));
