@@ -121,3 +121,33 @@ function decode(roman) {
 }
 
 console.log(decode("XXX"));
+
+const getDaysInAYear = (start, end) => Math.ceil((end - start) / 86400000);
+const mostFrequentDays = (year) => {
+    const dateYearBegins = new Date(year, 0);
+    const dateYearEnds = new Date(year, 11, 31, 23, 59, 59, 999);
+    const daysInAYear = getDaysInAYear(dateYearBegins, dateYearEnds);
+    let remainder = daysInAYear % 7;
+
+    let result = [];
+    for (let index = 0; index < remainder; index++) {
+        result.push((dateYearBegins.getDay() + index + 6) % 7);
+    }
+
+    return result
+        .sort()
+        .map(
+            (i) => [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday",
+            ][i]
+        );
+};
+
+console.log(mostFrequentDays(1968));
+//['Monday', 'Tuesday']
