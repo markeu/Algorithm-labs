@@ -151,3 +151,29 @@ const mostFrequentDays = (year) => {
 
 console.log(mostFrequentDays(1968));
 //['Monday', 'Tuesday']
+
+const converToDecimal = (hex) => {
+    let r = parseInt(hex[1] + hex[2], 16);
+    let g = parseInt(hex[3] + hex[4], 16);
+    let b = parseInt(hex[5] + hex[6], 16);
+    return { r, g, b };
+};
+
+function parseHTMLColor(color) {
+    // implement me...
+    const presentColorMap = PRESET_COLORS[color.toLowerCase()];
+
+    if (color.length == 7) {
+        return converToDecimal(color);
+    } else if (presentColorMap) {
+        return converToDecimal(presentColorMap);
+    } else {
+        let r = color[1].repeat(2);
+        let g = color[2].repeat(2);
+        let b = color[3].repeat(2);
+
+        return converToDecimal(`#${r}${g}${b}`);
+    }
+}
+
+console.log(parseHTMLColor("#80FFA0"));
